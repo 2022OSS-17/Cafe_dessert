@@ -4,11 +4,11 @@
 
 int main(void){
     
-    Product slist[100];
+    Product plist[100];
     int curcount=0;
     int count = 0, menu;
     
-    count = loadData(slist);
+    count = loadData(plist);
     curcount=count; 
 
     while (1){
@@ -22,20 +22,20 @@ int main(void){
 			}
 		}
 
-        if(menu == 1) listProduct(slist,curcount); 
+        if(menu == 1) listProduct(plist,curcount); 
         else if (menu == 2) {
-            count+=createProduct(&slist[curcount++]); 
+            count+=createProduct(&plist[curcount++]); 
         }
         else if (menu == 3) {
-            int no=selectDataNo(slist, curcount);
+            int no=selectDataNo(plist, curcount);
             if(no==0){
                 printf("=>취소됨!");
                 continue;
             }
-            updateProduct(&slist[no-1]);
+            updateProduct(&plist[no-1]);
         }
         else if (menu == 4) {
-            int no=selectDataNo(slist, curcount);
+            int no=selectDataNo(plist, curcount);
             if(no==0){
                 printf("=>취소됨!");
                 continue;
@@ -44,12 +44,12 @@ int main(void){
             printf("정말로 삭제하시겠습니까?(삭제:1)");
             scanf("%d",&deleteok);
             if(deleteok == 1){
-                if(deleteProduct(&slist[no-1])) count --;       
+                if(deleteProduct(&plist[no-1])) count --;       
            	 } 
         }
 	    else if (menu == 5){
 		    if (count==0) printf("데이터가 없습니다!\n");
-		    else saveData(slist,curcount);
+		    else saveData(plist,curcount);
 	    }
 	}
 
