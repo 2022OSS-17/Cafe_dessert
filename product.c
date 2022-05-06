@@ -11,7 +11,7 @@ int createProduct(Product *p){
     printf("가격은? ");
     scanf("%d",&p->price);
     
-    printf("==> 추가됨\n"); 
+    printf("==> 성공적으로 추가됨!\n"); 
     return 1;
 }
 
@@ -30,13 +30,13 @@ int updateProduct(Product *p){
 
     printf("가격은? ");
     scanf("%d",&p->price);
-    printf("==> 수정됨!\n");
+    printf("==> 성공적으로 수정됨!\n");
     return 1;
 };
 
 int deleteProduct(Product *p){
     p->weight=-1;
     p->price=-1;
-    printf("==> 삭제됨!\n");
+    printf("==> 성공적으로 삭제됨!\n");
     return 0;
 }
