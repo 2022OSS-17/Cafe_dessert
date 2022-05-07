@@ -1,5 +1,3 @@
-#include "product.h"
-
 // 자판기 메뉴 보여주는 함수
 int selectMenu();
 
