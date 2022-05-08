@@ -9,6 +9,9 @@ int selectMenu(){
     printf("3. 메뉴 수정\n");
     printf("4. 메뉴 삭제\n");
     printf("5. 변경 사항 저장\n");
+    printf("6. 디저트 검색\n");
+    printf("7. 가격 검색\n");
+    printf("8. 카테고리 검색\n");
     printf("0. 종료\n\n");
     printf("=> 원하는 서비스 번호는? ");
     scanf("%d", &menu);
@@ -42,7 +45,7 @@ int selectDataNo(Product *p, int count){
 void saveData(Product *p, int count){
 	FILE* fp;
 
-	fp= fopen("product.txt", "wt");
+	fp= fopen("japangi.txt", "wt");
 
 	for (int i=0; i<count; i++){
 		if(p[i].price == -1) continue;
@@ -59,7 +62,7 @@ int loadData(Product *p){
 	int count=0, i=0;
 	FILE*fp;
 
-	fp = fopen("product.txt", "rt");
+	fp = fopen("japangi.txt", "rt");
     
     if(fp != NULL) {
         for(; i<100; i++){
@@ -80,4 +83,74 @@ int loadData(Product *p){
         return 0;
     }
 	
+}
+
+// 디저트 이름으로 검색
+void searchName(Product *p, int count) {
+    int scnt = 0;
+    char search[20];
+
+    printf("검색할 제품? ");
+    scanf("%s", search);
+
+    printf("\nNo.      Name      price      category\n");
+    printf("==========================================\n");
+
+    for(int i = 0; i < count; i++) {
+        if(p[i].price == -1) continue;
+        if(strstr(p[i].name, search)) {
+            printf("%2d ", i+1);
+            readProduct(&p[i]);
+            scnt++;
+        }
+    }
+    if(scnt == 0) printf("=> 검색된 데이터 없음!");
+    printf("\n");
+}
+
+// 디저트 가격으로 검색
+void searchPrice(Product *p, int count) {
+    int scnt = 0;
+    int search;
+
+    printf("검색할 가격? ");
+    scanf("%d", &search);
+
+    printf("\nNo.      Name      price      category\n");
+    printf("==========================================\n");
+
+    for(int i = 0; i < count; i++) {
+        if(p[i].price == -1) continue;
+        if(p[i].price == search) {
+            printf("%2d ", i+1);
+            readProduct(&p[i]);
+            scnt++;
+        }
+    }
+    if(scnt == 0) printf("=> 검색된 데이터 없음!");
+    printf("\n");
+
+}
+
+// 카테고리로 검색
+void searchCategory(Product *p, int count) {
+    int scnt = 0;
+    char search[20];
+
+    printf("검색할 카테고리? ");
+    scanf("%s", search);
+
+    printf("\nNo.      Name      price      category\n");
+    printf("==========================================\n");
+
+    for(int i = 0; i < count; i++) {
+        if(p[i].price == -1) continue;
+        if(strstr(p[i].ctgy, search)) {
+            printf("%2d ", i+1);
+            readProduct(&p[i]);
+            scnt++;
+        }
+    }
+    if(scnt == 0) printf("=> 검색된 데이터 없음!");
+    printf("\n");
 }
