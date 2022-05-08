@@ -1,4 +1,6 @@
 #pragma once
+#include <stdio.h>
+#include <string.h>
 #include "product.h"
 
 // 자판기 메뉴 보여주는 함수
