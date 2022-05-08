@@ -21,7 +21,7 @@ int createProduct(Product *p){
 
 // 하나의 디저트 품목 출력 함수
 void readProduct(Product *p){
-    printf("%-15s %3d원 %5s\n",p->name,p->price,p->ctgy);
+    printf("||%9s ||%7d원 ||%7s ||\n",p->name,p->price,p->ctgy);
 }
 
 // 생성된 디저트 수정 함수
