@@ -29,7 +29,7 @@ int main(void){
         else if (menu == 3) {
             int no=selectDataNo(plist, curcount);
             if(no==0){
-                printf("=>√Îº“µ !");
+                printf("=>√Îº“µ !\n");
                 continue;
             }
             updateProduct(&plist[no-1]);
@@ -37,7 +37,7 @@ int main(void){
         else if (menu == 4) {
             int no=selectDataNo(plist, curcount);
             if(no==0){
-                printf("=>√Îº“µ !");
+                printf("=>√Îº“µ !\n");
                 continue;
             }
             int deleteok;
