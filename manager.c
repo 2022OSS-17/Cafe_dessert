@@ -18,11 +18,11 @@ int selectMenu(){
 // 등록된 전체 제품 출력 함수
 void listProduct(Product *p,int count){
 
-    printf("\nNo. Name          weight price\n");
-    printf("================================\n");
+    printf("\nNo.      Name      price      category\n");
+    printf("==========================================\n");
     for(int i=0; i<count; i++){
         if(p[i].price == -1 ) continue;
-        printf("%2d.", i+1);
+        printf("%2d ", i+1);
         readProduct(&p[i]);
     }
     printf("\n");
