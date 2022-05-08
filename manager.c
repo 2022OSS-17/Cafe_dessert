@@ -1,24 +1,22 @@
 #include <stdio.h>
 #include "manager.h"
-#include "product.h"
 
-
-//  ë©”ë‰´ ì¶œë ¥/ìž…ë ¥ í•¨ìˆ˜
+//  ¸Þ´º Ãâ·Â/ÀÔ·Â ÇÔ¼ö
 int selectMenu(){
     int menu;
-    printf("\n*** ì œí’ˆ ê´€ë¦¬ ***\n");
-    printf("1. ë©”ë‰´ ì¡°íšŒ\n");
-    printf("2. ë©”ë‰´ ì¶”ê°€\n");
-    printf("3. ë©”ë‰´ ìˆ˜ì •\n");
-    printf("4. ë©”ë‰´ ì‚­ì œ\n");
-    printf("5. ë³€ê²½ ì‚¬í•­ ì €ìž¥\n");
-    printf("0. ì¢…ë£Œ\n\n");
-    printf("=> ì›í•˜ëŠ” ì„œë¹„ìŠ¤ ë²ˆí˜¸ëŠ”? ");
+    printf("\n*** Á¦Ç° °ü¸® ***\n");
+    printf("1. ¸Þ´º Á¶È¸\n");
+    printf("2. ¸Þ´º Ãß°¡\n");
+    printf("3. ¸Þ´º ¼öÁ¤\n");
+    printf("4. ¸Þ´º »èÁ¦\n");
+    printf("5. º¯°æ »çÇ× ÀúÀå\n");
+    printf("0. Á¾·á\n\n");
+    printf("=> ¿øÇÏ´Â ¼­ºñ½º ¹øÈ£´Â? ");
     scanf("%d", &menu);
     return menu;
 }
 
-// ë“±ë¡ëœ ì „ì²´ ì œí’ˆ ì¶œë ¥ í•¨ìˆ˜
+// µî·ÏµÈ ÀüÃ¼ Á¦Ç° Ãâ·Â ÇÔ¼ö
 void listProduct(Product *p,int count){
 
     printf("\nNo. Name          weight price\n");
@@ -31,18 +29,18 @@ void listProduct(Product *p,int count){
     printf("\n");
 }
 
-// ì œí’ˆì„ ë²ˆí˜¸ëª…ìœ¼ë¡œ ì„ íƒí•˜ëŠ” í•¨ìˆ˜
+// Á¦Ç°À» ¹øÈ£¸íÀ¸·Î ¼±ÅÃÇÏ´Â ÇÔ¼ö
 int selectDataNo(Product *p, int count){
     int no;
     listProduct(p,count);
-    printf("ë²ˆí˜¸ëŠ” (ì·¨ì†Œ:0)?");
+    printf("¹øÈ£´Â (Ãë¼Ò:0)?");
     scanf("%d",&no);
     getchar();
     return no;
 }
 
 
-// ë¦¬ìŠ¤íŠ¸ ì €ìž¥ í•¨ìˆ˜
+// ¸®½ºÆ® ÀúÀå ÇÔ¼ö
 void saveData(Product *p, int count){
 	FILE* fp;
 
@@ -52,10 +50,10 @@ void saveData(Product *p, int count){
 		fprintf(fp, "%s %d %d\n", p[i].name, p[i].weight, p[i].price);
 	}
 	fclose(fp);
-	printf("ë³€ê²½ ì‚¬í•­ ì €ìž¥ë¨!\n");
+	printf("º¯°æ »çÇ× ÀúÀåµÊ!\n");
 }
 
-// ì €ìž¥ëœ ë¦¬ìŠ¤íŠ¸ ë¶ˆëŸ¬ì˜¤ëŠ” í•¨ìˆ˜
+// ÀúÀåµÈ ¸®½ºÆ® ºÒ·¯¿À´Â ÇÔ¼ö
 int loadData(Product *p){
 	int count=0, i=0;
 	FILE*fp;
@@ -67,6 +65,6 @@ int loadData(Product *p){
 		fscanf(fp, "%d", &p[i].price);
 	}
 	fclose(fp);
-	printf("=> ë¡œë”© ì„±ê³µ!\n");
+	printf("=> ·Îµù ¼º°ø!\n");
 	return count;
 }
