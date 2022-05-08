@@ -17,3 +17,12 @@ void saveData(Product *p, int count);
 
 // 저장된 리스트 불러오는 함수
 int loadData(Product *p);
+
+// 디저트 이름으로 검색
+void searchName(Product *p, int count);
+
+// 디저트 가격으로 검색
+void searchPrice(Product *p, int count);
+
+// 카테고리로 검색
+void searchCategory(Product *p, int count);
