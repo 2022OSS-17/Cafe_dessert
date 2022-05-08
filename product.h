@@ -1,17 +1,20 @@
+#pragma once
+#include <stdio.h>
+
 typedef struct{
-	char name[60];
-	int weight;
-	int price;
+	char name[60]; // µğÀúÆ® ¸í
+	int price; // °¡°İ
+	int ctgy;  // Ä«Å×°í¸®
 } Product;
 
-// ë””ì €íŠ¸ ìƒì„± í•¨ìˆ˜
+// µğÀúÆ® »ı¼º ÇÔ¼ö
 int createProduct(Product *p);
 
-// ìƒì„±ëœ ë””ì €íŠ¸ ì½ì–´ì˜¤ëŠ” í•¨ìˆ˜
+// »ı¼ºµÈ µğÀúÆ® ÀĞ¾î¿À´Â ÇÔ¼ö
 void readProduct(Product *p); 
 
-// ìƒì„±ëœ ë””ì €íŠ¸ ìˆ˜ì •í•˜ëŠ” í•¨ìˆ˜
+// »ı¼ºµÈ µğÀúÆ® ¼öÁ¤ÇÏ´Â ÇÔ¼ö
 int updateProduct(Product *p);
 
-// ìƒì„±ëœ ë””ì €íŠ¸ ì‚­ì œí•˜ëŠ” í•¨ìˆ˜
+// »ı¼ºµÈ µğÀúÆ® »èÁ¦ÇÏ´Â ÇÔ¼ö
 int deleteProduct(Product *p); 
