@@ -1,49 +1,52 @@
-#include <stdio.h>
 #include "product.h"
 
-// ë””ì €íŠ¸ ìƒì„±í•˜ëŠ” í•¨ìˆ˜
+// µğÀúÆ® »ı¼ºÇÏ´Â ÇÔ¼ö
 int createProduct(Product *p){
     printf("\n");
-    printf("ì œí’ˆëª…ì€? ");
+    printf("Á¦Ç°¸íÀº? ");
     scanf("%[^\n]s",p->name);
     getchar();
 
-    printf("ì¤‘ëŸ‰ì€? ");
-    scanf("%d",&p->weight);
+    printf("°¡°İÀº? ");
+    scanf("%d", &p->price);
+    getchar();
 
-    printf("ê°€ê²©ì€? ");
-    scanf("%d",&p->price);
+    printf("Ä«Å×°í¸®? (Ä¿ÇÇ, Æ¼, ÁÖ½º, »§, ÄíÅ°, »ø·¯µå) ");
+    scanf("%[^\n]s", p->ctgy);
+    getchar();
     
-    printf("==> ì„±ê³µì ìœ¼ë¡œ ì¶”ê°€ë¨!\n"); 
+    printf("==> ¼º°øÀûÀ¸·Î Ãß°¡µÊ!\n"); 
     return 1;
 }
 
-// í•˜ë‚˜ì˜ ë””ì €íŠ¸ í’ˆëª© ì¶œë ¥ í•¨ìˆ˜
+// ÇÏ³ªÀÇ µğÀúÆ® Ç°¸ñ Ãâ·Â ÇÔ¼ö
 void readProduct(Product *p){
-    printf("%-15s %3dg %4dì›\n",p->name,p->weight,p->price);
+    printf("%-15s %3d¿ø %5s\n",p->name,p->price,p->ctgy);
 }
 
-// ìƒì„±ëœ ë””ì €íŠ¸ ìˆ˜ì • í•¨ìˆ˜
+// »ı¼ºµÈ µğÀúÆ® ¼öÁ¤ ÇÔ¼ö
 int updateProduct(Product *p){
 
     printf("\n");
-    printf("ì œí’ˆëª…ì€? ");
+    printf("Á¦Ç°¸íÀº? ");
     scanf("%[^\n]s",p->name);
     getchar();
 
-    printf("ì¤‘ëŸ‰ì€? ");
-    scanf("%d",&p->weight);
-
-    printf("ê°€ê²©ì€? ");
+    printf("°¡°İÀº? ");
     scanf("%d",&p->price);
-    printf("==> ì„±ê³µì ìœ¼ë¡œ ìˆ˜ì •ë¨!\n");
+    getchar();
+
+    printf("Ä«Å×°í¸®? (Ä¿ÇÇ, Æ¼, ÁÖ½º, »§, ÄíÅ°, »ø·¯µå) ");
+    scanf("%[^\n]s", p->ctgy);
+    getchar();
+
+    printf("==> ¼º°øÀûÀ¸·Î ¼öÁ¤µÊ!\n");
     return 1;
 };
 
-// ìƒì„±ëœ ë””ì €íŠ¸ í’ˆëª© ì‚­ì œ í•¨ìˆ˜
+// »ı¼ºµÈ µğÀúÆ® Ç°¸ñ »èÁ¦ ÇÔ¼ö
 int deleteProduct(Product *p){
-    p->weight=-1;
     p->price=-1;
-    printf("==> ì„±ê³µì ìœ¼ë¡œ ì‚­ì œë¨!\n");
+    printf("==> ¼º°øÀûÀ¸·Î »èÁ¦µÊ!\n");
     return 0;
 }
