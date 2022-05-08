@@ -1,6 +1,9 @@
+#include <stdio.h>
 #include "manager.h"
 #include "product.h"
 
+
+//  메뉴 출력/입력 함수
 int selectMenu(){
     int menu;
     printf("\n*** 제품 관리 ***\n");
@@ -14,6 +17,8 @@ int selectMenu(){
     scanf("%d", &menu);
     return menu;
 }
+
+// 등록된 전체 제품 출력 함수
 void listProduct(Product *p,int count){
 
     printf("\nNo. Name          weight price\n");
@@ -26,6 +31,7 @@ void listProduct(Product *p,int count){
     printf("\n");
 }
 
+// 제품을 번호명으로 선택하는 함수
 int selectDataNo(Product *p, int count){
     int no;
     listProduct(p,count);
@@ -35,19 +41,21 @@ int selectDataNo(Product *p, int count){
     return no;
 }
 
+
+// 리스트 저장 함수
 void saveData(Product *p, int count){
 	FILE* fp;
 
 	fp= fopen("product.txt","wt");
 	for (int i=0; i<count; i++){
-		if(s[i].weight == -1) continue;
+		if(p[i].weight == -1) continue;
 		fprintf(fp, "%s %d %d\n", p[i].name, p[i].weight, p[i].price);
 	}
 	fclose(fp);
 	printf("변경 사항 저장됨!\n");
 }
 
-
+// 저장된 리스트 불러오는 함수
 int loadData(Product *p){
 	int count=0, i=0;
 	FILE*fp;
