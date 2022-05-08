@@ -42,10 +42,13 @@ int selectDataNo(Product *p, int count){
 void saveData(Product *p, int count){
 	FILE* fp;
 
-	fp= fopen("product.txt","wt");
+	fp= fopen("product.txt", "wt");
+
 	for (int i=0; i<count; i++){
 		if(p[i].price == -1) continue;
-		fprintf(fp, "%s %d %d\n", p[i].name, p[i].price, p[i].ctgy);
+        fprintf(fp, "%s\n", p[i].name);
+        fprintf(fp, "%d\n", p[i].price);
+        fprintf(fp, "%s\n", p[i].ctgy);
 	}
 	fclose(fp);
 	printf("변경 사항 저장됨!\n");
@@ -64,12 +67,13 @@ int loadData(Product *p){
             p[i].name[strlen(p[i].name) - 1] = '\0';
             if(feof(fp)) break;
             fscanf(fp, "%d", &p[i].price);
+            fgetc(fp);
             fgets(p[i].ctgy, sizeof(p[i].ctgy), fp);
             p[i].ctgy[strlen(p[i].ctgy) - 1] = '\0';
 	    }
 	    fclose(fp);
 	    printf("=> 로딩 성공!\n");
-	    return count;
+	    return i;
     } 
     else {
         printf("=> 파일없음\n");
