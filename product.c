@@ -26,8 +26,7 @@ void readProduct(Product *p){
 
 // 생성된 디저트 수정 함수
 int updateProduct(Product *p){
-
-    printf("\n");
+    getchar();
     printf("제품명은? ");
     scanf("%[^\n]s",p->name);
     getchar();
