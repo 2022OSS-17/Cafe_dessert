@@ -51,6 +51,13 @@ int main(void){
 		    if (count==0) printf("데이터가 없습니다!\n");
 		    else saveData(plist,curcount);
 	    }
+        else if (menu == 6) {
+            searchName(plist, curcount);
+        } else if (menu == 7) {
+            searchPrice(plist, curcount);
+        } else if (menu == 8) {
+            searchCategory(plist, curcount);
+        }
 	}
 
 	printf("\n종료됨!\n");
