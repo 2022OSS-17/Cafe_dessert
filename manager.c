@@ -1,24 +1,25 @@
 #include "manager.h"
 
-//  ¸Þ´º Ãâ·Â/ÀÔ·Â ÇÔ¼ö
+//  ë©”ë‰´ ì¶œë ¥/ìž…ë ¥ í•¨ìˆ˜
 int selectMenu(){
     int menu;
-    printf("\n*** Á¦Ç° °ü¸® ***\n");
-    printf("1. ¸Þ´º Á¶È¸\n");
-    printf("2. ¸Þ´º Ãß°¡\n");
-    printf("3. ¸Þ´º ¼öÁ¤\n");
-    printf("4. ¸Þ´º »èÁ¦\n");
-    printf("5. º¯°æ »çÇ× ÀúÀå\n");
-    printf("6. µðÀúÆ® °Ë»ö\n");
-    printf("7. °¡°Ý °Ë»ö\n");
-    printf("8. Ä«Å×°í¸® °Ë»ö\n");
-    printf("0. Á¾·á\n\n");
-    printf("=> ¿øÇÏ´Â ¼­ºñ½º ¹øÈ£´Â? ");
+    printf("\n*** ì œí’ˆ ê´€ë¦¬ ***\n");
+    printf("1. ë©”ë‰´ ì¡°íšŒ\n");
+    printf("2. ë©”ë‰´ ì¶”ê°€\n");
+    printf("3. ë©”ë‰´ ìˆ˜ì •\n");
+    printf("4. ë©”ë‰´ ì‚­ì œ\n");
+    printf("5. ë³€ê²½ ì‚¬í•­ ì €ìž¥\n");
+    printf("6. ë””ì €íŠ¸ ê²€ìƒ‰\n");
+    printf("7. ê°€ê²© ê²€ìƒ‰\n");
+    printf("8. ì¹´í…Œê³ ë¦¬ ê²€ìƒ‰\n");
+    printf("9. ìž¥ë°”êµ¬ë‹ˆ\n");
+    printf("0. ì¢…ë£Œ\n\n");
+    printf("=> ì›í•˜ëŠ” ì„œë¹„ìŠ¤ ë²ˆí˜¸ëŠ”? ");
     scanf("%d", &menu);
     return menu;
 }
 
-// µî·ÏµÈ ÀüÃ¼ Á¦Ç° Ãâ·Â ÇÔ¼ö
+// ë“±ë¡ëœ ì „ì²´ ì œí’ˆ ì¶œë ¥ í•¨ìˆ˜
 void listProduct(Product *p,int count){
 
     printf("\nNo.      Name      price      category\n");
@@ -31,17 +32,17 @@ void listProduct(Product *p,int count){
     printf("\n");
 }
 
-// Á¦Ç°À» ¹øÈ£¸íÀ¸·Î ¼±ÅÃÇÏ´Â ÇÔ¼ö
+// ì œí’ˆì„ ë²ˆí˜¸ëª…ìœ¼ë¡œ ì„ íƒí•˜ëŠ” í•¨ìˆ˜
 int selectDataNo(Product *p, int count){
     int no;
     listProduct(p,count);
-    printf("¹øÈ£´Â (Ãë¼Ò:0)?");
+    printf("ë²ˆí˜¸ëŠ” (ì·¨ì†Œ:0)?");
     scanf("%d",&no);
     return no;
 }
 
 
-// ¸®½ºÆ® ÀúÀå ÇÔ¼ö
+// ë¦¬ìŠ¤íŠ¸ ì €ìž¥ í•¨ìˆ˜
 void saveData(Product *p, int count){
 	FILE* fp;
 
@@ -54,10 +55,10 @@ void saveData(Product *p, int count){
         fprintf(fp, "%s\n", p[i].ctgy);
 	}
 	fclose(fp);
-	printf("º¯°æ »çÇ× ÀúÀåµÊ!\n");
+	printf("ë³€ê²½ ì‚¬í•­ ì €ìž¥ë¨!\n");
 }
 
-// ÀúÀåµÈ ¸®½ºÆ® ºÒ·¯¿À´Â ÇÔ¼ö
+// ì €ìž¥ëœ ë¦¬ìŠ¤íŠ¸ ë¶ˆëŸ¬ì˜¤ëŠ” í•¨ìˆ˜
 int loadData(Product *p){
 	int count=0, i=0;
 	FILE*fp;
@@ -75,22 +76,22 @@ int loadData(Product *p){
             p[i].ctgy[strlen(p[i].ctgy) - 1] = '\0';
 	    }
 	    fclose(fp);
-	    printf("=> ·Îµù ¼º°ø!\n");
+	    printf("=> ë¡œë”© ì„±ê³µ!\n");
 	    return i;
     } 
     else {
-        printf("=> ÆÄÀÏ¾øÀ½\n");
+        printf("=> íŒŒì¼ì—†ìŒ\n");
         return 0;
     }
 	
 }
 
-// µðÀúÆ® ÀÌ¸§À¸·Î °Ë»ö
+// ë””ì €íŠ¸ ì´ë¦„ìœ¼ë¡œ ê²€ìƒ‰
 void searchName(Product *p, int count) {
     int scnt = 0;
     char search[20];
 
-    printf("°Ë»öÇÒ Á¦Ç°? ");
+    printf("ê²€ìƒ‰í•  ì œí’ˆ? ");
     scanf("%s", search);
 
     printf("\nNo.      Name      price      category\n");
@@ -104,16 +105,16 @@ void searchName(Product *p, int count) {
             scnt++;
         }
     }
-    if(scnt == 0) printf("=> °Ë»öµÈ µ¥ÀÌÅÍ ¾øÀ½!");
+    if(scnt == 0) printf("=> ê²€ìƒ‰ëœ ë°ì´í„° ì—†ìŒ!");
     printf("\n");
 }
 
-// µðÀúÆ® °¡°ÝÀ¸·Î °Ë»ö
+// ë””ì €íŠ¸ ê°€ê²©ìœ¼ë¡œ ê²€ìƒ‰
 void searchPrice(Product *p, int count) {
     int scnt = 0;
     int search;
 
-    printf("°Ë»öÇÒ °¡°Ý? ");
+    printf("ê²€ìƒ‰í•  ê°€ê²©? ");
     scanf("%d", &search);
 
     printf("\nNo.      Name      price      category\n");
@@ -127,17 +128,17 @@ void searchPrice(Product *p, int count) {
             scnt++;
         }
     }
-    if(scnt == 0) printf("=> °Ë»öµÈ µ¥ÀÌÅÍ ¾øÀ½!");
+    if(scnt == 0) printf("=> ê²€ìƒ‰ëœ ë°ì´í„° ì—†ìŒ!");
     printf("\n");
 
 }
 
-// Ä«Å×°í¸®·Î °Ë»ö
+// ì¹´í…Œê³ ë¦¬ë¡œ ê²€ìƒ‰
 void searchCategory(Product *p, int count) {
     int scnt = 0;
     char search[20];
 
-    printf("°Ë»öÇÒ Ä«Å×°í¸®? ");
+    printf("ê²€ìƒ‰í•  ì¹´í…Œê³ ë¦¬? ");
     scanf("%s", search);
 
     printf("\nNo.      Name      price      category\n");
@@ -151,6 +152,9 @@ void searchCategory(Product *p, int count) {
             scnt++;
         }
     }
-    if(scnt == 0) printf("=> °Ë»öµÈ µ¥ÀÌÅÍ ¾øÀ½!");
+    if(scnt == 0) printf("=> ê²€ìƒ‰ëœ ë°ì´í„° ì—†ìŒ!");
     printf("\n");
 }
+//ìž¥ë°”êµ¬ë‹ˆ
+printf("ë””ì €íŠ¸ë¥¼ ê³¨ë¼ì£¼ì„¸ìš”");
+
