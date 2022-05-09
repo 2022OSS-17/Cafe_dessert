@@ -13,6 +13,7 @@ int selectMenu(){
     printf("7. 가격 검색\n");
     printf("8. 카테고리 검색\n");
     printf("9. 장바구니\n");
+    peinrd("10. 결제 방법\n");
     printf("0. 종료\n\n");
     printf("=> 원하는 서비스 번호는? ");
     scanf("%d", &menu);
@@ -155,6 +156,34 @@ void searchCategory(Product *p, int count) {
     if(scnt == 0) printf("=> 검색된 데이터 없음!");
     printf("\n");
 }
-//장바구니
+//장바구니 함수
 printf("디저트를 골라주세요");
 
+//결제 방법 함수
+int howPay(){
+	int pay;
+	printf("결제 방법을 골라 주세요\n");
+	printf("1. 신용 카드 / 삼성 페이\n");
+	printf("2. 현금 결제\n");
+	printf("3. 온라인 쿠폰 결제\n");
+	printf("0. 종료\n");
+	scanf("%d", &pay);
+	if (pay==1){
+		printf("결제하실 금액은 %d원 입니다.\n" sumprice);
+		printf("신용 카드나 삼성 페이를 리더기에 갖다 대어 주세요.\n");
+	}
+	else if (pay==2){
+		printf("결제하실 금액은 %d원 입니다.\n" sumprice);
+		printf("해당 금액에 해당하는 현금을 넣어주세요.\n");
+	}
+	else if (pay==3){
+		printf("결제하실 금액은 %d원 입니다.\n" sumprice);
+		printf("사용하실 쿠폰의 바코드를 센서에 대어 주세요.\n");
+	}
+	else if (pay==0){
+		printf("결제가 취소 되었습니다.\n");
+	}
+	else {
+		printf("다시 눌러주세요.\n");
+	}
+}
