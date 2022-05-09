@@ -7,6 +7,12 @@ typedef struct{
 	char ctgy[20];  // 카테고리
 } Product;
 
+typedef struct{
+	char name[60]; // 디저트 명
+	int price; // 가격
+	char ctgy[20];  // 카테고리
+} Customer;
+
 // 디저트 생성 함수
 int createProduct(Product *p);
 
