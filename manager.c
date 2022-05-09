@@ -154,3 +154,10 @@ void searchCategory(Product *p, int count) {
     if(scnt == 0) printf("=> 검색된 데이터 없음!");
     printf("\n");
 }
+
+//메뉴 고르기
+void selecMenu(Product *p, Customer *c) {
+    strcpy(p->name, c->name);
+    c->price = p->price;
+    strcpy(p->ctgy, c->ctgy);
+}
