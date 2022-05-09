@@ -3,16 +3,17 @@
 //  메뉴 출력/입력 함수
 int selectMenu(){
     int menu;
-    printf("\n*** 제품 관리 ***\n");
-    printf("1. 메뉴 조회\n");
-    printf("2. 메뉴 추가\n");
-    printf("3. 메뉴 수정\n");
-    printf("4. 메뉴 삭제\n");
-    printf("5. 변경 사항 저장\n");
-    printf("6. 디저트 검색\n");
-    printf("7. 가격 검색\n");
+    printf("\n*** 제품 관리 ***       ***제품 선택 키오스크***\n");
+    printf("1. 메뉴 조회              || 1. 메뉴 조회  \n");
+    printf("2. 메뉴 추가              || 6. 디저트 검색\n");
+    printf("3. 메뉴 수정              || 7. 가격 검색\n");
+    printf("4. 메뉴 삭제              || 8. 카테고리 검색\n");
+    printf("5. 변경 사항 저장         || 9. 메뉴 선택\n");
+    printf("6. 디저트 검색            || 10. 장바구니 보기\n");
+    printf("7. 가격 검색              || 0. 종료\n");
     printf("8. 카테고리 검색\n");
     printf("0. 종료\n\n");
+
     printf("=> 원하는 서비스 번호는? ");
     scanf("%d", &menu);
     return menu;
@@ -156,8 +157,28 @@ void searchCategory(Product *p, int count) {
 }
 
 //메뉴 고르기
-void selecMenu(Product *p, Customer *c) {
-    strcpy(p->name, c->name);
+void putInBasket(Product *p, Customer *c) {
+    strcpy(c->name, p->name);
     c->price = p->price;
-    strcpy(p->ctgy, c->ctgy);
+    strcpy(c->ctgy, p->ctgy);
+
 }
+
+void readBasket(Customer *c){
+    printf("||%9s ||%7d원 ||%7s ||\n", c->name, c->price, c->ctgy);
+}
+
+// 장바구니 보기
+void listBasket(Customer *c, int count) {
+
+    printf("**************내 장바구니******************");
+    printf("\nNo.      Name      price      category\n");
+    printf("==========================================\n");
+    for(int i=0; i<count; i++){
+        if(c[i].price == -1 ) continue;
+        printf("%2d ", i+1);
+        readProduct(&c[i]);
+    }
+    printf("\n");
+}
+
