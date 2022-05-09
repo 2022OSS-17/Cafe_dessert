@@ -1,26 +1,24 @@
 #include "manager.h"
 
-//  메뉴 출력/입력 함수
+//  �޴� ���/�Է� �Լ�
 int selectMenu(){
     int menu;
-    printf("\n*** 제품 관리 ***\n");
-    printf("1. 메뉴 조회\n");
-    printf("2. 메뉴 추가\n");
-    printf("3. 메뉴 수정\n");
-    printf("4. 메뉴 삭제\n");
-    printf("5. 변경 사항 저장\n");
-    printf("6. 디저트 검색\n");
-    printf("7. 가격 검색\n");
-    printf("8. 카테고리 검색\n");
-    printf("9. 장바구니\n");
-    peinrd("10. 결제 방법\n");
-    printf("0. 종료\n\n");
-    printf("=> 원하는 서비스 번호는? ");
+    printf("\n*** ��ǰ ���� ***\n");
+    printf("1. �޴� ��ȸ\n");
+    printf("2. �޴� �߰�\n");
+    printf("3. �޴� ����\n");
+    printf("4. �޴� ����\n");
+    printf("5. ���� ���� ����\n");
+    printf("6. ����Ʈ �˻�\n");
+    printf("7. ���� �˻�\n");
+    printf("8. ī�װ��� �˻�\n");
+    printf("0. ����\n\n");
+    printf("=> ���ϴ� ���� ��ȣ��? ");
     scanf("%d", &menu);
     return menu;
 }
 
-// 등록된 전체 제품 출력 함수
+// ��ϵ� ��ü ��ǰ ��� �Լ�
 void listProduct(Product *p,int count){
 
     printf("\nNo.      Name      price      category\n");
@@ -33,17 +31,17 @@ void listProduct(Product *p,int count){
     printf("\n");
 }
 
-// 제품을 번호명으로 선택하는 함수
+// ��ǰ�� ��ȣ������ �����ϴ� �Լ�
 int selectDataNo(Product *p, int count){
     int no;
     listProduct(p,count);
-    printf("번호는 (취소:0)?");
+    printf("��ȣ�� (���:0)?");
     scanf("%d",&no);
     return no;
 }
 
 
-// 리스트 저장 함수
+// ����Ʈ ���� �Լ�
 void saveData(Product *p, int count){
 	FILE* fp;
 
@@ -56,10 +54,10 @@ void saveData(Product *p, int count){
         fprintf(fp, "%s\n", p[i].ctgy);
 	}
 	fclose(fp);
-	printf("변경 사항 저장됨!\n");
+	printf("���� ���� �����!\n");
 }
 
-// 저장된 리스트 불러오는 함수
+// ����� ����Ʈ �ҷ����� �Լ�
 int loadData(Product *p){
 	int count=0, i=0;
 	FILE*fp;
@@ -77,22 +75,22 @@ int loadData(Product *p){
             p[i].ctgy[strlen(p[i].ctgy) - 1] = '\0';
 	    }
 	    fclose(fp);
-	    printf("=> 로딩 성공!\n");
+	    printf("=> �ε� ����!\n");
 	    return i;
     } 
     else {
-        printf("=> 파일없음\n");
+        printf("=> ���Ͼ���\n");
         return 0;
     }
 	
 }
 
-// 디저트 이름으로 검색
+// ����Ʈ �̸����� �˻�
 void searchName(Product *p, int count) {
     int scnt = 0;
     char search[20];
 
-    printf("검색할 제품? ");
+    printf("�˻��� ��ǰ? ");
     scanf("%s", search);
 
     printf("\nNo.      Name      price      category\n");
@@ -106,16 +104,16 @@ void searchName(Product *p, int count) {
             scnt++;
         }
     }
-    if(scnt == 0) printf("=> 검색된 데이터 없음!");
+    if(scnt == 0) printf("=> �˻��� ������ ����!");
     printf("\n");
 }
 
-// 디저트 가격으로 검색
+// ����Ʈ �������� �˻�
 void searchPrice(Product *p, int count) {
     int scnt = 0;
     int search;
 
-    printf("검색할 가격? ");
+    printf("�˻��� ����? ");
     scanf("%d", &search);
 
     printf("\nNo.      Name      price      category\n");
@@ -129,17 +127,17 @@ void searchPrice(Product *p, int count) {
             scnt++;
         }
     }
-    if(scnt == 0) printf("=> 검색된 데이터 없음!");
+    if(scnt == 0) printf("=> �˻��� ������ ����!");
     printf("\n");
 
 }
 
-// 카테고리로 검색
+// ī�װ����� �˻�
 void searchCategory(Product *p, int count) {
     int scnt = 0;
     char search[20];
 
-    printf("검색할 카테고리? ");
+    printf("�˻��� ī�װ���? ");
     scanf("%s", search);
 
     printf("\nNo.      Name      price      category\n");
@@ -153,37 +151,6 @@ void searchCategory(Product *p, int count) {
             scnt++;
         }
     }
-    if(scnt == 0) printf("=> 검색된 데이터 없음!");
+    if(scnt == 0) printf("=> �˻��� ������ ����!");
     printf("\n");
-}
-//장바구니 함수
-printf("디저트를 골라주세요");
-
-//결제 방법 함수
-int howPay(){
-	int pay;
-	printf("결제 방법을 골라 주세요\n");
-	printf("1. 신용 카드 / 삼성 페이\n");
-	printf("2. 현금 결제\n");
-	printf("3. 온라인 쿠폰 결제\n");
-	printf("0. 종료\n");
-	scanf("%d", &pay);
-	if (pay==1){
-		printf("결제하실 금액은 %d원 입니다.\n" sumprice);
-		printf("신용 카드나 삼성 페이를 리더기에 갖다 대어 주세요.\n");
-	}
-	else if (pay==2){
-		printf("결제하실 금액은 %d원 입니다.\n" sumprice);
-		printf("해당 금액에 해당하는 현금을 넣어주세요.\n");
-	}
-	else if (pay==3){
-		printf("결제하실 금액은 %d원 입니다.\n" sumprice);
-		printf("사용하실 쿠폰의 바코드를 센서에 대어 주세요.\n");
-	}
-	else if (pay==0){
-		printf("결제가 취소 되었습니다.\n");
-	}
-	else {
-		printf("다시 눌러주세요.\n");
-	}
 }
