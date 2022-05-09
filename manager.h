@@ -28,4 +28,9 @@ void searchPrice(Product *p, int count);
 void searchCategory(Product *p, int count);
 
 //메뉴 고르기
-void selecMenu(Product *p, Customer *c);
+void putInBasket(Product *p, Customer *c);
+
+void readBasket(Customer *c);
+
+// 장바구니 보기
+void listBasket(Customer *p,int count);
